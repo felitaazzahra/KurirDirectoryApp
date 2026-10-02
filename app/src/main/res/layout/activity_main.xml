@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Judul Header Halaman -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direktori Kurir &amp; Pengguna"
+        android:textColor="#0F172A"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Data diambil langsung via RESTful GET API publik"
+        android:textColor="#64748B"
+        android:textSize="13sp" />
+
+    <!-- Kolom Input Pencarian Live -->
+    <EditText
+        android:id="@+id/editTextSearchName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:hint="🔍 Ketik nama atau perusahaan..."
+        android:inputType="text"
+        android:paddingHorizontal="14dp"
+        android:textSize="14sp" />
+
+    <!-- Indikator Loading Saat Request Data Berlangsung -->
+    <ProgressBar
+        android:id="@+id/progressBarLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="16dp"
+        android:visibility="gone" />
+
+    <!-- Notifikasi Pesan Galat Jika Koneksi Gagal -->
+    <TextView
+        android:id="@+id/textViewErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#DC2626"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- Area Tampilan Data & Penanganan State Kosong -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Daftar Kartu Kurir -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewUsers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Teks Muncul Jika Pencarian Tidak Ada Hasil (Tugas 2) -->
+        <TextView
+            android:id="@+id/textViewEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Tidak ada kurir yang cocok dengan pencarian Anda"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>
